@@ -23,7 +23,11 @@
 https://docs.google.com/spreadsheets/d/1HE7CRsJ-QWT-LJ2Erjd6ifUYGS6uvTg-K-o6pCN8QVY/edit?usp=sharing
 ​
 ## 設計書
-<!--テーマを設定・提出する時点では不要です-->
+- ER図
+　https://drive.google.com/file/d/1lcGiAseB55ueRiwrr3ghKxkuPm6SmAda/view?usp=sharing
+- テーブル定義書
+　https://docs.google.com/spreadsheets/d/1qzBhBvXthU3LHPgcPkhd52YJ9nVbkei6nymVbH3BdbE/edit?usp=sharing
+- アプリケーション詳細設計
 ​
 ## 開発環境
 - OS：Linux(CentOS)
