@@ -28,6 +28,7 @@ https://docs.google.com/spreadsheets/d/1HE7CRsJ-QWT-LJ2Erjd6ifUYGS6uvTg-K-o6pCN8
 - テーブル定義書
 　https://docs.google.com/spreadsheets/d/1qzBhBvXthU3LHPgcPkhd52YJ9nVbkei6nymVbH3BdbE/edit?usp=sharing
 - アプリケーション詳細設計
+  https://docs.google.com/spreadsheets/d/13ZaY6PpOXKKQnjbpVYAYxnJ06chq0ZD643PV1_RX9mM/edit?usp=sharing
 ​
 ## 開発環境
 - OS：Linux(CentOS)
