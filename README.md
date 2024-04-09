@@ -29,6 +29,8 @@ https://docs.google.com/spreadsheets/d/1HE7CRsJ-QWT-LJ2Erjd6ifUYGS6uvTg-K-o6pCN8
 　https://docs.google.com/spreadsheets/d/1qzBhBvXthU3LHPgcPkhd52YJ9nVbkei6nymVbH3BdbE/edit?usp=sharing
 - アプリケーション詳細設計
   https://docs.google.com/spreadsheets/d/13ZaY6PpOXKKQnjbpVYAYxnJ06chq0ZD643PV1_RX9mM/edit?usp=sharing
+- UI Flows
+  https://drive.google.com/file/d/1t7xrhM807yzywvRc1KwtyEFj_xnyV1rj/view?usp=sharing
 ​
 ## 開発環境
 - OS：Linux(CentOS)
