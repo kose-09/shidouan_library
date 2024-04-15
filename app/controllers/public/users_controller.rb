@@ -19,9 +19,14 @@ class Public::UsersController < ApplicationController
   end 
   
   def confirm_withdrawal
+    @user = User.find(params[:id])
   end 
   
   def withdrawal
+    @user = User.find(params[:id])
+    @user.update(is_active: false)
+    reset_session
+    redirect_to root_path
   end 
   
   def my_favorites
