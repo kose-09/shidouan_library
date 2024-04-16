@@ -2,7 +2,8 @@
 <%= form_with model: @post do |f| %>
   <label for="InputTitle">題材名</label><br>
   <%= f.text_field :title, autofocus: true, id:"InputTitle", placeholder:"題材名" %><br>
-
+  <label for="InputPdf">指導案PDF</label><br>
+  <%= f.file_field :shidouan_pdf, placeholder:"指導案のPDFファイル", accept: "application/pdf" %><br>
   <label for="InputCaption">説明文</label><br>
   <%= f.text_area :caption, placeholder:"見てほしいところ、工夫した点など" %><br>
 
