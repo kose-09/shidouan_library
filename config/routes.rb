@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   get '/users/:id/confirm_withdrawal' => 'public/users#confirm_withdrawal', as: 'confirm_withdrawal'
   patch '/users/:id/withdrawal' => 'public/users#withdrawal', as: 'withdrawal'
   resources :users, only: [:show, :edit, :update], controller: 'public/users'
-  
+
   resources :posts, controller: 'public/posts'
+
+  resources :subject_categories, only: [:index, :create, :edit, :update], controller: 'admin/subject_categories'
+
+  resources :unit_categories, only: [:index, :create, :edit, :update], controller: 'admin/unit_categories'
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

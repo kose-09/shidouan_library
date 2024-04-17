@@ -1,0 +1,6 @@
+<h1>教科一覧</h1>
+ <%= form_with model: @subject_category do |f| %>
+   <label for="InputSubject">教科名</label><br>
+   <%= f.text_field :subject, palceholder:"教科名" %><br>
+   <%= f.submit "教科を登録" %>
+ <% end %>
