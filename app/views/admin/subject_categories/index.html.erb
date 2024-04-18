@@ -4,3 +4,7 @@
    <%= f.text_field :subject, palceholder:"教科名" %><br>
    <%= f.submit "教科を登録" %>
  <% end %>
+
+ <% @subject_categories.each do |subject_category| %>
+   <%= subject_category.subject %>
+ <% end %>

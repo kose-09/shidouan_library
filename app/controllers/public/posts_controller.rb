@@ -45,6 +45,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :shidouan_pdf, :caption)
+    params.require(:post).permit(:title, :shidouan_pdf, :caption, :subject_category_id, :unit_caregory_id)
   end
 end
