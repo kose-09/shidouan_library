@@ -5,7 +5,7 @@ class Admin::UnitCategoriesController < ApplicationController
   end
 
   def create
-    @unit_category = UnitCategory.new(subject_category_params)
+    @unit_category = UnitCategory.new(unit_category_params)
     if @unit_category.save
       redirect_to unit_categories_path
     else
