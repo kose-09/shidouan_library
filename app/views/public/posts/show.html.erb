@@ -1,1 +1,22 @@
 <h1>投稿詳細</h1>
+
+<table>
+  <tbody>
+      <tr>
+        <th>題材名</th>
+        <td><%= @post.title %></td>
+      </tr>
+      <tr>
+        <th>説明文</th>
+        <td><%= @post.caption %></td>
+      </tr>
+      <tr>
+        <% if @post.user == current_user %>
+          <td><%= link_to "edit", edit_post_path(@post.id) %></td>
+          <td><%= link_to "destroy", post_path(@post.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+        <% end %>
+      </tr>
+
+  </tbody>
+</table>
+
