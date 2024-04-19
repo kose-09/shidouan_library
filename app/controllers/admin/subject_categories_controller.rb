@@ -15,6 +15,7 @@ class Admin::SubjectCategoriesController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
@@ -23,6 +24,6 @@ class Admin::SubjectCategoriesController < ApplicationController
   private
 
   def subject_category_params
-    params.require(:subject_category).permit(:subject)
+    params.require(:subject_category).permit(:name)
   end
 end

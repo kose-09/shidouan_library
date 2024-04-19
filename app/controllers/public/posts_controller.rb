@@ -13,11 +13,14 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
+      flash[:notice] = "投稿しました。"
       redirect_to posts_path
     else
-      render :new
-    end
+      @posts = Post.all
+      render :index
+    end 
   end
 
   def edit
@@ -26,8 +29,12 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update
-    redirect_to post_path(@post.id)
+    if @post.update(post_params)
+      flash[:notice] = "更新しました。"
+      redirect_to posts_path
+    else
+      render :edit
+    end 
   end
 
   def destroy
@@ -48,6 +55,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :shidouan_pdf, :caption, :subject_category_id, :unit_category_id)
+    params.require(:post).permit(:title, :shidouan_pdf, :caption, :subject_category_id)
   end
 end

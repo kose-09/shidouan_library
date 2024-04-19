@@ -1,10 +1,21 @@
 <h1>教科一覧</h1>
- <%= form_with model: @subject_category do |f| %>
-   <label for="InputSubject">教科名</label><br>
-   <%= f.text_field :subject, palceholder:"教科名" %><br>
-   <%= f.submit "教科を登録" %>
- <% end %>
+<%= form_with model: @subject_category do |f| %>
+  <label for="InputSubject">教科名</label><br>
+  <%= f.text_field :name, palceholder:"教科名" %><br>
+  <%= f.submit "教科を登録" %>
+<% end %>
 
- <% @subject_categories.each do |subject_category| %>
-   <%= subject_category.subject %>
- <% end %>
+<table>
+ <thead>
+  <tr>
+   <th>教科名</th>
+  </tr>
+ </thead>
+ <tbody>
+  <% @subject_categories.each do |subject_category| %>
+  <tr>
+   <td><%= subject_category.name %></td>
+  </tr>
+  <% end %>
+ </tbody>
+</table>

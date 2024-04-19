@@ -18,8 +18,6 @@ Rails.application.routes.draw do
 
   resources :subject_categories, only: [:index, :create, :edit, :update], controller: 'admin/subject_categories'
 
-  resources :unit_categories, only: [:index, :create, :edit, :update], controller: 'admin/unit_categories'
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

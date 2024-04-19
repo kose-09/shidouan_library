@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_17_135847) do
+ActiveRecord::Schema.define(version: 2024_04_17_135816) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -55,26 +55,18 @@ ActiveRecord::Schema.define(version: 2024_04_17_135847) do
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "caption"
-    t.integer "unit_category_id"
+    t.integer "subject_category_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["unit_category_id"], name: "index_posts_on_unit_category_id"
+    t.index ["subject_category_id"], name: "index_posts_on_subject_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "subject_categories", force: :cascade do |t|
-    t.string "subject"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "unit_categories", force: :cascade do |t|
-    t.string "unit"
-    t.integer "subject_category_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["subject_category_id"], name: "index_unit_categories_on_subject_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,7 +86,6 @@ ActiveRecord::Schema.define(version: 2024_04_17_135847) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "posts", "unit_categories"
+  add_foreign_key "posts", "subject_categories"
   add_foreign_key "posts", "users"
-  add_foreign_key "unit_categories", "subject_categories"
 end

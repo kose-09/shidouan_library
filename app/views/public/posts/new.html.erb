@@ -1,9 +1,7 @@
 <h1>新規投稿</h1>
 <%= form_with model: @post do |f| %>
   <label for="InputSubject">教科</label><br>
-  <%= f.collection_select :subject_category_id, SubjectCategory.all, :id, :subject, { prompt: '選択してください' } %><br>
-  <label for="InputUnit">単元</label><br>
-  <%= f.collection_select :unit_category_id, UnitCategory.all, :id, :unit, { prompt: '選択してください' } %><br>
+  <%= f.collection_select :subject_category_id, SubjectCategory.all, :id, :name, { prompt: '選択してください' } %><br>
   <label for="InputTitle">題材名</label><br>
   <%= f.text_field :title, autofocus: true, id:"InputTitle", placeholder:"題材名" %><br>
   <label for="InputPdf">指導案PDF</label><br>
