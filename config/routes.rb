@@ -14,11 +14,13 @@ Rails.application.routes.draw do
   patch '/users/:id/withdrawal' => 'public/users#withdrawal', as: 'withdrawal'
   resources :users, only: [:show, :edit, :update], controller: 'public/users'
 
-  resources :posts, controller: 'public/posts'
+  resources :posts, controller: 'public/posts' do
+    resource :favorite, only: [:create, :destroy], controller: 'public/favorites'
+  end
 
   resources :subject_categories, only: [:index, :create, :edit, :update], controller: 'admin/subject_categories'
   
-  resources :favorites, only: [:create, :destroy], controller: 'public/favorites'
+ 
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

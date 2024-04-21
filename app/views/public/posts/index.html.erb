@@ -7,6 +7,7 @@
       <th>題材名</th>
       <th>投稿者</th>
       <th>投稿日</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
       <td><%= post.title %></td>
       <td><%= post.user.name %></td>
       <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= post.favorites.count %>いいね</td>
       <td><%= link_to "show", post_path(post.id) %></td>
       <td>
         <% if post.user == current_user %>
