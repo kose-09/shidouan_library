@@ -43,9 +43,6 @@ class Public::PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def pdf
-  end
-
   def search
   end
 

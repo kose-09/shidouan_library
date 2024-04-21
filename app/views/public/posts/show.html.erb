@@ -7,6 +7,12 @@
         <td><%= @post.title %></td>
       </tr>
       <tr>
+        <th></th>
+        <td>
+          <embed src="<%= polymorphic_url(@post.shidouan_pdf) %>" width="700" height="700" type="application/pdf"></embed>
+        </td>
+      </tr>
+      <tr>
         <th>説明文</th>
         <td><%= @post.caption %></td>
       </tr>
