@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :posts, controller: 'public/posts'
 
   resources :subject_categories, only: [:index, :create, :edit, :update], controller: 'admin/subject_categories'
+  
+  resources :favorites, only: [:create, :destroy], controller: 'public/favorites'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
