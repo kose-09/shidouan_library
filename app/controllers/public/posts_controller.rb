@@ -16,11 +16,10 @@ class Public::PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       flash[:notice] = "投稿しました。"
-      redirect_to posts_path
+      redirect_to post_path(@post.id)
     else
-      @posts = Post.all
-      render :index
-    end 
+      render :new
+    end
   end
 
   def edit
@@ -31,10 +30,10 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "更新しました。"
-      redirect_to posts_path
+      redirect_to post_path(@post.id)
     else
       render :edit
-    end 
+    end
   end
 
   def destroy
