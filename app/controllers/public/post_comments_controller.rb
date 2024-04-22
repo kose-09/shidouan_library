@@ -8,6 +8,8 @@ class Public::PostCommentsController < ApplicationController
   end 
   
   def destroy
+    post = Post.find(params[:post_id])
+    
   end 
   
   private
