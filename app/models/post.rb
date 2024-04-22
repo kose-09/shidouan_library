@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :subject_category, optional: true
   has_many :favorites, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
   has_one_attached :shidouan_pdf
 
