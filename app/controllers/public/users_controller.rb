@@ -31,6 +31,9 @@ class Public::UsersController < ApplicationController
   end
 
   def my_favorites
+    @user = User.find(params[:id])
+    my_favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(my_favorites)
   end
 
   private

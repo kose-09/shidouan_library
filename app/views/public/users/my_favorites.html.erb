@@ -1,4 +1,4 @@
-<h1>投稿一覧</h1>
+<h4>いいね一覧</h4>
 
 <table>
   <thead>
@@ -7,11 +7,10 @@
       <th>題材名</th>
       <th>投稿者</th>
       <th>投稿日</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @posts.each do |post| %>
+    <% @favorite_posts.each do |post| %>
     <tr>
       <td><%= post.subject_category.name %></td>
       <td>
@@ -25,11 +24,6 @@
       <td>
         <%= link_to post_post_comments_path(post.id) do %>
           <%= post.post_comments.count %>コメント
-        <% end %>
-      </td>
-      <td>
-        <% if post.user == current_user %>
-          <%= link_to "edit", edit_post_path(post.id) %>
         <% end %>
       </td>
     </tr>

@@ -12,7 +12,11 @@ Rails.application.routes.draw do
 
   get '/users/:id/confirm_withdrawal' => 'public/users#confirm_withdrawal', as: 'confirm_withdrawal'
   patch '/users/:id/withdrawal' => 'public/users#withdrawal', as: 'withdrawal'
-  resources :users, only: [:show, :edit, :update], controller: 'public/users'
+  resources :users, only: [:show, :edit, :update], controller: 'public/users' do
+    member do
+      get :my_favorites
+    end
+  end
 
   resources :posts, controller: 'public/posts' do
     resource :favorite, only: [:create, :destroy], controller: 'public/favorites'
