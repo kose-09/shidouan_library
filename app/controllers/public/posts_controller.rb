@@ -44,6 +44,7 @@ class Public::PostsController < ApplicationController
   end
 
   def search
+    @post = Post.search(params[:keyword])
   end
 
   def search_result
