@@ -5,6 +5,4 @@
   <%= form.submit "検索" %>
 <% end %>
 
-<% @post.each do |post| %>
-  <%= post.title %>
-<% end %>
+<%= render 'list', posts: @post %>
