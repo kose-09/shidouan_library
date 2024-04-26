@@ -1,5 +1,7 @@
 <h1>投稿編集</h1>
 
+<%= render 'error_message', post: @post %> 
+
 <%= form_with model: @post do |f| %>
   <label for="InputSubject">教科</label><br>
   <%= f.collection_select :subject_category_id, SubjectCategory.all, :id, :name, { prompt: '選択してください' } %><br>

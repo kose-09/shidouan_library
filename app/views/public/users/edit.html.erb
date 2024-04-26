@@ -1,5 +1,14 @@
 <h1>プロフィール編集</h1>
 
+<% if @user.errors.any? %>
+  <h2><%= @user.errors.count %>件のエラーが発生しました</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @user do |f| %>
   <label for="InputName">ユーザーネーム</label><br>
   <%= f.text_field :name, autofocus: true, id:"InputName", placeholder:"名前" %><br>
