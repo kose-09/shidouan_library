@@ -15,9 +15,9 @@ class Post < ApplicationRecord
 
   def self.search(search, subject_category_id)
     if search.present? && subject_category_id.present?
-      Post.where('title LIKE(?) AND subject_category_id=?', "%#{search}%", subject_category_id)
+      Post.where('(title LIKE ? OR caption LIKE ?) AND subject_category_id = ?', "%#{search}%","%#{search}%", subject_category_id)
     elsif search.present?
-      Post.where('title LIKE(?)', "%#{search}%")
+      Post.where('title LIKE ? OR caption LIKE ?', "%#{search}%", "%#{search}%")
     elsif subject_category_id.present?
       Post.where(subject_category_id: subject_category_id)
     else
