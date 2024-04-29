@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :is_matching_login_user, only: [:edit, :update, :destroy]
   
   def index
     @posts = Post.all
@@ -54,4 +55,13 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :shidouan_pdf, :caption, :subject_category_id)
   end
+  
+  def is_matching_login_user
+    post = Post.find(params[:id])
+    user = post.user
+    unless user == current_user
+      redirect_to posts_path
+    end 
+  end 
+  
 end

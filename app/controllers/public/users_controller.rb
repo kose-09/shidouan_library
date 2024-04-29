@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show, :my_favorites]
+  before_action :is_matching_login_user, except: [:show, :my_favorites]
 
   def show
     @user = User.find(params[:id])
@@ -7,12 +8,10 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-    is_matching_login_user
     @user = User.find(params[:id])
   end
 
   def update
-    is_matching_login_user
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "ユーザー情報を更新しました。"
@@ -23,12 +22,10 @@ class Public::UsersController < ApplicationController
   end
 
   def confirm_withdrawal
-    is_matching_login_user
     @user = User.find(params[:id])
   end
 
   def withdrawal
-    is_matching_login_user
     @user = User.find(params[:id])
     @user.update(is_active: false)
     reset_session
