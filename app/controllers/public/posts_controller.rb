@@ -1,4 +1,6 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :search]
+  
   def index
     @posts = Post.all
   end
@@ -45,9 +47,6 @@ class Public::PostsController < ApplicationController
 
   def search
     @post = Post.search(params[:keyword], params[:subject_category_id])
-  end
-
-  def search_result
   end
 
   private
