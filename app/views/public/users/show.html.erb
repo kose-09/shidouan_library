@@ -6,10 +6,13 @@
 <h4>自己紹介</h4>
 <%= @user.introduction %>
 
-<% if @user == current_user %>
-  <%= link_to "編集", edit_user_path(@user.id) %>
-  <%= link_to "退会する", confirm_withdrawal_path(@user.id) %>
+<% unless @user.guest_user? %>
+  <% if @user == current_user %>
+    <%= link_to "編集", edit_user_path(@user.id) %>
+    <%= link_to "退会する", confirm_withdrawal_path(@user.id) %>
+  <% end %>
 <% end %>
+
 
 <P><%= link_to "いいねした投稿", my_favorites_user_path(@user) %></P>
 
