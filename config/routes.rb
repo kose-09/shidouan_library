@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :subject_categories, only: [:index, :create, :edit, :update]
+  end
   root to: 'public/homes#about'
 
   devise_for :users, skip: [:passwords], controllers: {
@@ -26,7 +30,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :subject_categories, only: [:index, :create, :edit, :update], controller: 'admin/subject_categories'
+ 
   
   devise_scope :user do
     post "users/guest_sign_in", to: "public/sessions#guest_sign_in"

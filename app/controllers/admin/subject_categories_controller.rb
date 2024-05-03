@@ -7,7 +7,7 @@ class Admin::SubjectCategoriesController < ApplicationController
   def create
     @subject_category = SubjectCategory.new(subject_category_params)
     if @subject_category.save
-      redirect_to subject_categories_path
+      redirect_to admin_subject_categories_path 
     else
       @subject_categories = SubjectCategory.all
       render :index
