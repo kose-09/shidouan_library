@@ -15,10 +15,17 @@ class Admin::SubjectCategoriesController < ApplicationController
   end
 
   def edit
-    
+    @subject_category = SubjectCategory.find(params[:id])
   end
 
   def update
+    @subject_category = SubjectCategory.find(params[:id])
+    if @subject_category.update(subject_category_params)
+      redirect_to admin_subject_categories_path
+    else 
+      @subject_categories = SubjectCategory.all
+      render :index
+    end 
   end
 
   private

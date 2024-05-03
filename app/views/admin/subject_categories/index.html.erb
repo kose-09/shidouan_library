@@ -15,6 +15,7 @@
   <% @subject_categories.each do |subject_category| %>
   <tr>
    <td><%= subject_category.name %></td>
+   <td><%= link_to "編集", edit_admin_subject_category_path(subject_category) %></td>
   </tr>
   <% end %>
  </tbody>
