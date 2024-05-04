@@ -1,1 +1,34 @@
-  <h1>投稿詳細</h1>
+<h1>投稿詳細</h1>
+
+<table>
+  <tbody>
+      <tr>
+        <th>題材名</th>
+        <td><%= @post.title %></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <embed src="<%= polymorphic_url(@post.shidouan_pdf) %>" width="700" height="700" type="application/pdf"></embed>
+        </td>
+      </tr>
+      <tr>
+        <th>説明文</th>
+        <td><%= @post.caption %></td>
+      </tr>
+      <tr>
+        <td><%= link_to "削除", post_path(@post.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+      </tr>
+  </tbody>
+</table>
+
+<div>
+  <p>
+    <%= @post.favorites.count %>いいね
+  </p>
+  <p>
+    <%= link_to post_post_comments_path(@post.id) do %>
+      <%= @post.post_comments.count %>コメント
+    <% end %>
+  </p>
+</div>
