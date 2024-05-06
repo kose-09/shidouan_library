@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :posts, only: [:index, :show, :destroy] do 
-      resources :post_comments, only: [:index, :destroy]
-    end 
+    resources :posts, only: [:index, :show, :destroy]  
+    resources :post_comments, only: [:index, :destroy]
     resources :subject_categories, only: [:index, :create, :edit, :update]
   end
   root to: 'public/homes#about'
