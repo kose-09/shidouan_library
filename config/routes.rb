@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'public/posts#index'
   
+  get 'about' => 'public/homes#about', as: 'about'
+  
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :destroy]  
