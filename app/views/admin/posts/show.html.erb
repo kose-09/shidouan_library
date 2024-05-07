@@ -27,7 +27,7 @@
     <%= @post.favorites.count %>いいね
   </p>
   <p>
-    <%= link_to post_post_comments_path(@post.id) do %>
+    <%= link_to post_comments_admin_post_path(@post.id) do %>
       <%= @post.post_comments.count %>コメント
     <% end %>
   </p>
