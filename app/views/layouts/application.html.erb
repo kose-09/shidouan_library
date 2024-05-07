@@ -12,12 +12,9 @@
 
   <body>
     <header>
-      <li>
-        <%= link_to "投稿一覧", posts_path %>
-      </li>
     <% if user_signed_in? %>
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "投稿一覧", posts_path %>
       </li>
       <li>
         <%= link_to "マイページ", user_path(current_user.id) %>
@@ -25,7 +22,29 @@
       <li>
         <%= link_to "新規投稿", new_post_path %>
       </li>
+      <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+    <% elsif admin_signed_in? %>
+      <li>
+        <%= link_to "投稿一覧", admin_posts_path %>
+      </li>
+      <li>
+        <%= link_to "教科一覧", admin_subject_categories_path %>
+      </li>
+      <li>
+        <%= link_to "ユーザー一覧", admin_users_path %>
+      </li>
+      <li>
+        <%= link_to "コメント一覧", admin_post_comments_path %>
+      </li>
+      <li>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      </li>
     <% else %>
+      <li>
+        <%= link_to "投稿一覧", posts_path %>
+      </li>
       <li>
         <%= link_to "新規登録", new_user_registration_path %>
       </li>
