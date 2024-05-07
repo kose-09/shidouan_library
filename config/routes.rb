@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  root to: 'public/posts#index'
+  
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :destroy]  
     resources :post_comments, only: [:index, :destroy]
     resources :subject_categories, only: [:index, :create, :edit, :update]
   end
-  root to: 'public/homes#about'
 
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
