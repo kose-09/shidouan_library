@@ -11,13 +11,21 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "About", about_path %>
-      </li>
-      <li>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand p-3" href="/">指導案ライブラリ</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigations">
+            <span class="navbar-toggler-icon"></span>
+          </button> 
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+            <li>
+              <%= link_to "About", about_path %>
+           </li>
+           <li>
         <%= link_to "投稿一覧", posts_path %>
       </li>
       <li>
@@ -29,7 +37,7 @@
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
-    <% elsif admin_signed_in? %>
+      <% elsif admin_signed_in? %>
       <li>
         <%= link_to "投稿一覧", admin_posts_path %>
       </li>
@@ -45,7 +53,7 @@
       <li>
         <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
       </li>
-    <% else %>
+      <% else %>
       <li>
         <%= link_to "About", about_path %>
       </li>
@@ -61,7 +69,12 @@
       <li>
         <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %>
       </li>
-    <% end %>
+      <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
     </header>
     <div>
       <%= flash[:notice] %>
