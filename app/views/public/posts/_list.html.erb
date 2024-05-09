@@ -19,7 +19,11 @@
           <%= post.title %>
         <% end %>
       </td>
-      <td><%= post.user.name %></td>
+      <td>
+        <%= link_to user_path(post.user) do %>
+          <%= post.user.name %>
+        <% end %>
+      </td>
       <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
       <td><%= post.favorites.count %>いいね</td>
       <td>
