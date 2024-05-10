@@ -1,32 +1,50 @@
-<h4>いいね一覧</h4>
+<div class="container-fluid">
+  <div class="row">
+    <div class="mt-3 ml-5">
+      <h4>いいね一覧</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-9 mx-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>教科</th>
+            <th>題材名</th>
+            <th>投稿者</th>
+            <th>投稿日</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @favorite_posts.each do |post| %>
+          <tr>
+            <td><%= post.subject_category.name %></td>
+            <td>
+              <%= link_to post_path(post.id) do %>
+                <%= post.title %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to user_path(post.user) do %>
+                <%= post.user.name %>
+              <% end %>
+            </td>
+            <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
+            <td><%= post.favorites.count %>いいね</td>
+            <td>
+              <%= link_to post_post_comments_path(post.id) do %>
+                <%= post.post_comments.count %>コメント
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>教科</th>
-      <th>題材名</th>
-      <th>投稿者</th>
-      <th>投稿日</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @favorite_posts.each do |post| %>
-    <tr>
-      <td><%= post.subject_category.name %></td>
-      <td>
-        <%= link_to post_path(post.id) do %>
-          <%= post.title %>
-        <% end %>
-      </td>
-      <td><%= post.user.name %></td>
-      <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
-      <td><%= post.favorites.count %>いいね</td>
-      <td>
-        <%= link_to post_post_comments_path(post.id) do %>
-          <%= post.post_comments.count %>コメント
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
