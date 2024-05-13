@@ -1,23 +1,36 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-3 mt-3">
-      <%= image_tag @user.get_profile_image(200,200) %>
-      <div class="mt-3">
-        <h6>ユーザーネーム</h6>
-        <%= @user.name %>
-      </div>
-      <div class="mt-5 border">
-        <h6>自己紹介</h6>
-        <%= @user.introduction %>
-      </div>
-      
-      <% unless @user.guest_user? %>
-        <% if @user == current_user %>
-          <%= link_to "編集", edit_user_path(@user.id) %>
-          <%= link_to "退会する", confirm_withdrawal_path(@user.id) %>
+    <div class="col-3 mt-3">  
+      <table class="table">
+        <tr>
+          <td>
+            <%= image_tag @user.get_profile_image(200,200) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <ユーザーネーム><br>
+            <%= @user.name %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <自己紹介><br>
+            <%= @user.introduction %>
+          </td>
+        </tr>
+        <% unless @user.guest_user? %>
+          <% if @user == current_user %>
+            <tr>
+              <td><%= link_to "編集", edit_user_path(@user.id), class: 'btn btn-success' %></td>
+              <td><%= link_to "退会する", confirm_withdrawal_path(@user.id), class: 'btn btn-danger' %></td>
+            </tr>
+          <% end %>
         <% end %>
-      <% end %>
-      <P><%= link_to "いいねした投稿", my_favorites_user_path(@user) %></P>
+      </table>
+      <div class="mt-5">
+        <P><%= link_to "いいねした投稿", my_favorites_user_path(@user), class: 'btn btn-secondary btn-block' %></P>
+      </div>
     </div>
     
     <div class="offset-1 col-8 mt-3">

@@ -15,7 +15,7 @@
     <tr>
       <td><%= post.subject_category.name %></td>
       <td>
-        <%= link_to post_path(post.id) do %>
+        <%= link_to post_path(post) do %>
           <%= post.title %>
         <% end %>
       </td>
@@ -27,13 +27,14 @@
       <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
       <td><%= post.favorites.count %>いいね</td>
       <td>
-        <%= link_to post_post_comments_path(post.id) do %>
+        <%= link_to post_post_comments_path(post) do %>
           <%= post.post_comments.count %>コメント
         <% end %>
       </td>
       <td>
         <% if post.user == current_user %>
-          <%= link_to "編集", edit_post_path(post.id), class: 'btn btn-primary' %>
+          <%= link_to "編集", edit_post_path(post), class: 'btn btn-success' %>
+          <%= link_to "削除", post_path(post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %>
         <% end %>
       </td>
     </tr>
