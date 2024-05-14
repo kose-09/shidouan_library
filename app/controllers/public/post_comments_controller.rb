@@ -16,7 +16,8 @@ class Public::PostCommentsController < ApplicationController
   end 
   
   def index
-    @post = Post.find(params[:post_id])
+    post = Post.find(params[:post_id])
+    @post_comments = post.post_comments.page(params[:page]).per(10)
   end 
   
   private

@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @post.post_comments.each do |post_comment| %>
+          <% @post_comments.each do |post_comment| %>
           <tr>
             <td><%= post_comment.comment %></td>
             <td><%= post_comment.user.name %></td>
@@ -28,6 +28,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @post_comments %>
     </div>
   </div>
 </div>
