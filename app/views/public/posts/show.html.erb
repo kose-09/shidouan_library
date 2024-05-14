@@ -39,8 +39,8 @@
           </tr>
           <tr>
             <% if @post.user == current_user %>
-              <td><%= link_to "編集", edit_post_path(@post.id) %></td>
-              <td><%= link_to "削除", post_path(@post.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+              <td><%= link_to "編集", edit_post_path(@post.id), class: 'btn btn-success' %></td>
+              <td><%= link_to "削除", post_path(@post.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %></td>
               <td></td>
             <% end %>
           </tr>
