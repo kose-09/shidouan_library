@@ -1,7 +1,9 @@
 <div class="container-fluid">
+  <div class="row mt-3 ml-5">
+    <h2>投稿詳細</h2>
+  </div>
   <div class="row">
     <div class="my-1 mx-auto">
-      <h4>投稿詳細</h4>
       <table class="table border">
         <tbody>
           <tr>
@@ -77,10 +79,9 @@
             <th></th>
             <td>
               <div>
-                <h5>コメント</h5>
                 <%= form_with model: [@post, @post_comment] do |f| %>
-                  <%= f.text_area :comment, rows:'5', placeholder: "コメントを入力" %>
-                  <%= f.submit "投稿する" %>
+                  <%= f.text_area :comment, rows:'5', placeholder: "コメントを入力", size: '70x10' %><br>
+                  <%= f.submit "投稿する", class: 'btn btn-secondary' %>
                 <% end %>
               </div>
             </td>
