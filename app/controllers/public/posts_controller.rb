@@ -47,7 +47,7 @@ class Public::PostsController < ApplicationController
   end
 
   def search
-    @post = Post.search(params[:keyword], params[:subject_category_id])
+    @post = Post.search(params[:keyword], params[:subject_category_id]).page(params[:page]).per(10)
   end
 
   private

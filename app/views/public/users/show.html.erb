@@ -36,6 +36,7 @@
     <div class="offset-1 col-8 mt-3">
       <h4>投稿一覧</h4>
       <%= render '/public/posts/list', posts: @posts %> 
+      <%= paginate @posts %>
     </div>
   </div>
 </div>

@@ -17,6 +17,7 @@
     <div class="col-9 offset-1">
       <h5>検索結果一覧</h5>
       <%= render 'list', posts: @post %>
+      <%= paginate @post %>
     </div>
   </div>
 </div>
