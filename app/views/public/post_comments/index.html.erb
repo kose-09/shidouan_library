@@ -1,22 +1,34 @@
-<table>
-  <tbody>
-    <% @post.post_comments.each do |post_comment| %>
-    <tr>
-      <td><%= post_comment.user.name %></td>
-    </tr>
-    <tr>
-      <td><%= post_comment.comment %></td>
-    </tr>
-    <tr>
-      <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
-    </tr>
-    <tr>
-      <td>
-        <% if post_comment.user == current_user %>
-          <%= link_to "削除", post_post_comment_path(post_comment.post.id, post_comment.id), method: :delete %>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="row mt-3 ml-5">
+    <h2>コメント一覧</h2>
+  </div>
+  <div class="row">
+    <div class="mx-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="width: 600px">コメント</th>
+            <th>ユーザー</th>
+            <th>投稿日</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @post.post_comments.each do |post_comment| %>
+          <tr>
+            <td><%= post_comment.comment %></td>
+            <td><%= post_comment.user.name %></td>
+            <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+            <td>
+              <% if post_comment.user == current_user %>
+                <%= link_to "削除", post_post_comment_path(post_comment.post.id, post_comment.id), method: :delete %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
