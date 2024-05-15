@@ -7,6 +7,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th></th>
             <th style="width: 600px">コメント</th>
             <th>ユーザー</th>
             <th>投稿日</th>
@@ -14,8 +15,9 @@
           </tr>
         </thead>
         <tbody>
-          <% @post_comments.each do |post_comment| %>
+          <% @post_comments.each.with_index(1) do |post_comment, i| %>
           <tr>
+            <td><%= i %></td>
             <td><%= post_comment.comment %></td>
             <td><%= post_comment.user.name %></td>
             <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
