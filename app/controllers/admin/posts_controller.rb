@@ -17,6 +17,7 @@ class Admin::PostsController < ApplicationController
   
   def post_comments
     @post = Post.find(params[:id])
+    
   end 
   
   def search
