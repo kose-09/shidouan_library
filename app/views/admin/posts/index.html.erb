@@ -2,7 +2,7 @@
   <div class="row m-2">
     <div class="col-2 border p-3">
       <h5>絞り込み検索</h5>
-      <%= form_with url: search_posts_path, local: true, method: :get do |f| %>
+      <%= form_with url: search_admin_posts_path, local: true, method: :get do |f| %>
         <div class="form-group">
           <label>カテゴリー</label><br>
           <%= f.collection_select :subject_category_id, SubjectCategory.all, :id, :name, { prompt: 'カテゴリーを選択' } %><br>

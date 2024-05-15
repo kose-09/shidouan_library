@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       member do
         get :post_comments 
       end
+      collection do
+      get :search
+      end
     end 
     resources :post_comments, only: [:index, :destroy]
     resources :subject_categories, only: [:index, :create, :edit, :update]
