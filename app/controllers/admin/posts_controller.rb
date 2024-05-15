@@ -2,7 +2,7 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(10)
   end 
   
   def show
@@ -18,4 +18,9 @@ class Admin::PostsController < ApplicationController
   def post_comments
     @post = Post.find(params[:id])
   end 
+  
+  def search
+    @post = Post.search(params[:keyword], params[:subject_category_id]).page(params[:page]).per(10)
+  end
+  
 end
