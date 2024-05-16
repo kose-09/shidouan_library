@@ -23,8 +23,7 @@ class Admin::SubjectCategoriesController < ApplicationController
     if @subject_category.update(subject_category_params)
       redirect_to admin_subject_categories_path
     else 
-      @subject_categories = SubjectCategory.all
-      render :index
+      render :edit
     end 
   end
   
