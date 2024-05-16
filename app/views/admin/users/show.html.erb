@@ -1,47 +1,42 @@
-<h1>ユーザー詳細</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 mt-3">
+      <table class="table">
+        <tr>
+          <td>
+            <%= image_tag @user.get_profile_image(200,200) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <ユーザーネーム><br>
+            <%= @user.name %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <自己紹介><br>
+            <%= @user.introduction %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= link_to "編集", edit_admin_user_path(@user), class: 'btn btn-success' %></td>
+        </tr>
+      </table>
+      <div class="mt-5">
+        <P><%= link_to "いいねした投稿", my_favorites_user_path(@user), class: 'btn btn-secondary btn-block' %></P>
+      </div>
+    </div>
 
-<%= image_tag @user.get_profile_image(100,100) %>
-<h4>ユーザーネーム</h4>
-<%= @user.name %>
-<h4>自己紹介</h4>
-<%= @user.introduction %>
+    <div class="offset-1 col-8 mt-3">
+      <h4>投稿一覧</h4>
+      <%= render '/admin/posts/list', posts: @posts %>
+      <%= paginate @posts %>
+    </div>
+  </div>
+</div>
 
-<%= link_to "編集", edit_admin_user_path(@user) %>
 
-<table>
-  <thead>
-    <tr>
-      <th>教科</th>
-      <th>題材名</th>
-      <th>投稿者</th>
-      <th>投稿日</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.subject_category.name %></td>
-      <td>
-        <%= link_to admin_post_path(post.id) do %>
-          <%= post.title %>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to admin_user_path(post.user) do %>
-          <%= post.user.name %>
-        <% end %>
-      </td>
-      <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
-      <td><%= post.favorites.count %>いいね</td>
-      <td>
-        <%= link_to post_post_comments_path(post.id) do %>
-          <%= post.post_comments.count %>コメント
-        <% end %>
-      </td>
-      <td>
-        <%= link_to "削除", admin_post_path(post.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
+
