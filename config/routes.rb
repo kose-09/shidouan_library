@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
     end 
     resources :post_comments, only: [:index, :destroy]
-    resources :subject_categories, only: [:index, :create, :edit, :update]
+    resources :subject_categories, only: [:index, :create, :edit, :update, :destroy]
   end
 
   devise_for :users, skip: [:passwords], controllers: {

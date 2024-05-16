@@ -27,6 +27,12 @@ class Admin::SubjectCategoriesController < ApplicationController
       render :index
     end 
   end
+  
+  def destroy
+    subject_category = SubjectCategory.find(params[:id])
+    subject_category.destroy
+    redirect_to admin_subject_categories_path 
+  end 
 
   private
 

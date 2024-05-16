@@ -1,22 +1,42 @@
-<h1>教科一覧</h1>
-<%= form_with model: [:admin, @subject_category] do |f| %>
-  <label for="InputSubject">教科名</label><br>
-  <%= f.text_field :name, palceholder:"教科名" %><br>
-  <%= f.submit "教科を登録" %>
-<% end %>
+<div class="container-fluid">
+  <div class="row m-2">
+    <div class="col-2 p-3">
+      <h5>新規教科登録</h5>
+      <%= form_with model: [:admin, @subject_category] do |f| %>
+        <div class="form-group">
+          <label for="InputSubject">教科名</label><br>
+          <%= f.text_field :name, palceholder:"教科名" %><br>
+        </div>
+        
+        <%= f.submit "教科を登録", class: 'btn btn-secondary' %>
+      <% end %>
+    </div>
+    <div class="col-9 offset-1">
+      <h5>教科一覧</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>教科名</th>
+            <th>登録日</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+         <tbody>
+         <% @subject_categories.each do |subject_category| %>
+           <tr>
+             <td><%= subject_category.name %></td>
+             <td><%= subject_category.created_at.strftime('%Y/%m/%d') %></td>
+             <td><%= link_to "編集", edit_admin_subject_category_path(subject_category), class: 'btn btn-success' %></td>
+             <td><%= link_to "削除", admin_subject_category_path(subject_category), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %></td>
+           </tr>
+         <% end %>
+         </tbody>
+       </table>
+    </div>
+  </div>
+</div>
 
-<table>
- <thead>
-  <tr>
-   <th>教科名</th>
-  </tr>
- </thead>
- <tbody>
-  <% @subject_categories.each do |subject_category| %>
-  <tr>
-   <td><%= subject_category.name %></td>
-   <td><%= link_to "編集", edit_admin_subject_category_path(subject_category) %></td>
-  </tr>
-  <% end %>
- </tbody>
-</table>
+
+
+
