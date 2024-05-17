@@ -16,7 +16,8 @@ class Admin::PostsController < ApplicationController
   end 
   
   def post_comments
-    @post = Post.find(params[:id])
+    post = Post.find(params[:id])
+    @post_comments = post.post_comments.page(params[:page]).per(10)
     
   end 
   
