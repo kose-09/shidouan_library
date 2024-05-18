@@ -20,7 +20,7 @@
             <tr>
               <th>投稿ユーザー</th>
               <td>
-                <%= link_to admin_user_path(@post.user) do %>
+                <%= link_to user_path(@post.user) do %>
                   <%= @post.user.name %>
                 <% end %>
               </td>
@@ -55,7 +55,7 @@
           </div>
           <div class="col-2">
             <p>
-              <%= link_to post_comments_admin_post_path(@post.id) do %>
+              <%= link_to post_post_comments_path(@post.id) do %>
                 <%= @post.post_comments.count %>コメント
               <% end %>
             </p>
@@ -66,7 +66,7 @@
           </div>
           <div class="col-2">
             <p>
-              <%= link_to post_comments_admin_post_path(@post.id) do %>
+              <%= link_to post_post_comments_path(@post.id) do %>
                 <%= @post.post_comments.count %>コメント
               <% end %>
             </p>
