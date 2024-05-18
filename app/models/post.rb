@@ -5,9 +5,11 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
 
   has_one_attached :shidouan_pdf
-  
+
   validates :title, presence: true
   validates :title, length: { maximum: 50 }
+  validates :shidouan_pdf, presence: true
+  validates :subject_category, presence: true
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
