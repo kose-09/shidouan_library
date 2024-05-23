@@ -1,4 +1,6 @@
 class Admin::SubjectCategoriesController < ApplicationController
+  before_action :authenticate_admin!
+  
   def index
     @subject_category =SubjectCategory.new
     @subject_categories = SubjectCategory.all
