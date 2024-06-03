@@ -2,7 +2,13 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @posts = Post.all.page(params[:page]).per(10)
+    if params[:latest]
+      @posts = Post.latest.page(params[:page]).per(10)
+    elsif params[:old]
+      @posts = Post.old.page(params[:page]).per(10)
+    else
+      @posts = Post.all.page(params[:page]).per(10)
+    end 
   end 
   
   def show
@@ -22,7 +28,14 @@ class Admin::PostsController < ApplicationController
   end 
   
   def search
-    @post = Post.search(params[:keyword], params[:subject_category_id]).page(params[:page]).per(10)
+    post = Post.search(params[:keyword], params[:subject_category_id])
+    if params[:latest]
+      @posts = post.latest.page(params[:page]).per(10)
+    elsif params[:old]
+      @posts = post.old.page(params[:page]).per(10)
+    else
+      @posts = post.all.page(params[:page]).per(10)
+    end 
   end
   
 end
