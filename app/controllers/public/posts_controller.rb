@@ -3,7 +3,13 @@ class Public::PostsController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update, :destroy]
   
   def index
+    if params[:latest]
+      @posts = Post.latest.page(params[:page]).per(10)
+    elsif params[:old]
+      @posts = Post.old.page(params[:page]).per(10)
+    else
     @posts = Post.all.page(params[:page]).per(10)
+    end 
   end
 
   def show
@@ -47,7 +53,14 @@ class Public::PostsController < ApplicationController
   end
 
   def search
-    @post = Post.search(params[:keyword], params[:subject_category_id]).page(params[:page]).per(10)
+    post = Post.search(params[:keyword], params[:subject_category_id]).page(params[:page]).per(10)
+    if params[:latest]
+      @posts = post.latest.page(params[:page]).per(10)
+    elsif params[:old]
+      @posts = post.old.page(params[:page]).per(10)
+    else
+      @posts = post.all.page(params[:page]).per(10)
+    end 
   end
 
   private

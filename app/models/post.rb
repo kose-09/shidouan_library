@@ -10,6 +10,9 @@ class Post < ApplicationRecord
   validates :title, length: { maximum: 50 }
   validates :shidouan_pdf, presence: true
   validates :subject_category, presence: true
+  
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)} 
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)

@@ -5,6 +5,8 @@
     </div>
     <div class="col-9 offset-1">
       <h5>投稿一覧</h5>
+      <%= link_to "新しい順", posts_path(latest: "true") %>
+      <%= link_to "古い順", posts_path(old: "true") %>
       <%= render 'list', posts: @posts %>
       <%= paginate @posts %>
     </div>
