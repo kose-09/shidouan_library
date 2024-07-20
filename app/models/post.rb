@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
-  belongs_to :subject_category, optional: true
+  belongs_to :subject_category
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy
 
