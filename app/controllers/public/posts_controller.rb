@@ -61,8 +61,8 @@ class Public::PostsController < ApplicationController
     elsif params[:old]
       @posts = post.old.page(params[:page]).per(10)
     else
-      @posts = post.all.page(params[:page]).per(10)
-    end 
+      @posts = post.page(params[:page]).per(10)
+    end
   end
 
   private
