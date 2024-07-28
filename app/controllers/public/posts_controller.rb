@@ -54,9 +54,7 @@ class Public::PostsController < ApplicationController
 
   def search
     post = Post.search(params[:keyword], params[:subject_category_id])
-    if post.nil?
-      @posts = []
-    elsif params[:latest]
+    if params[:latest]
       @posts = post.latest.page(params[:page]).per(10)
     elsif params[:old]
       @posts = post.old.page(params[:page]).per(10)
