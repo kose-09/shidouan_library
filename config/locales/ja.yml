@@ -4,3 +4,6 @@ ja:
       user:
         name: ユーザーネーム
         introduction: 自己紹介文
+      post:
+        title: 題材名
+        caption: 説明文
