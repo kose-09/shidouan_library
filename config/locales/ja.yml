@@ -8,3 +8,5 @@ ja:
         title: 題材名
         caption: 説明文
         subject_category: 教科
+      subject_category:
+        name: 教科名
