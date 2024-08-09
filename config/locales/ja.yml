@@ -8,5 +8,7 @@ ja:
         title: 題材名
         caption: 説明文
         subject_category: 教科
+        shidouan_pdf: 指導案のPDFファイル
       subject_category:
         name: 教科名
+      
