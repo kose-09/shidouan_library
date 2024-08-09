@@ -5,7 +5,7 @@
       <%= form_with model: [:admin, @subject_category] do |f| %>
         <div class="form-group">
           <label for="InputSubject">教科名</label><br>
-          <%= f.text_field :name, palceholder:"教科名" %><br>
+          <%= f.text_field :name, palceholder:"教科名", class: "form-control" %><br>
         </div>
         
         <%= f.submit "教科を登録", class: 'btn btn-secondary' %>
