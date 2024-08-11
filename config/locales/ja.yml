@@ -11,4 +11,6 @@ ja:
         shidouan_pdf: 指導案のPDFファイル
       subject_category:
         name: 教科名
+      post_comment:
+        comment: コメント
       
